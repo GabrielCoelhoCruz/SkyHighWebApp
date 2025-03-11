@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles that are harder to replicate with pure Tailwind */
+@layer components {
+  /* Lightning icons for team display */
+  .lightning-container {
+    @apply fixed inset-0 pointer-events-none z-[1] overflow-hidden;
+  }
+
+  .lightning-icon-wrapper {
+    @apply absolute w-10 h-10 flex items-center justify-center rounded-full bg-white/10 backdrop-blur text-white shadow-lg opacity-70 z-[1];
+    animation: iconAppear 5s infinite ease-in-out;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+  }
+
+  /* Team-specific styling */
+  .lightning-icon-wrapper[title="Sunshine"] {
+    @apply bg-yellow-500/20 text-yellow-500;
+  }
+
+  .lightning-icon-wrapper[title="Hailstorm"] {
+    @apply bg-purple-500/20 text-purple-500;
+  }
+
+  .lightning-icon-wrapper[title="Snowstorm"] {
+    @apply bg-blue-500/20 text-blue-500;
+  }
+
+  .lightning-icon-wrapper[title="Firestorm"] {
+    @apply bg-red-500/20 text-red-500;
+  }
+
+  .lightning-icon-wrapper[title="Thunderstorm"] {
+    @apply bg-teal-500/20 text-teal-500;
+  }
+
+  .lightning-icon-wrapper[title="Rainstorm"] {
+    @apply bg-green-500/20 text-green-500;
+  }
+}
+
+/* Custom keyframes that can't be directly represented in Tailwind */
+@keyframes iconAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  10% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  90% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+} 
